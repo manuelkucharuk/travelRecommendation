@@ -1,0 +1,9 @@
+body{
+    color: white;
+    min-height: 100vh;
+}
+.bgImg{
+    background-image: url('../assets/buenosAires2.jpg');
+    background-size: cover;
+}
+
