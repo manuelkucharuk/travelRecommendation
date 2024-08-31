@@ -9,3 +9,14 @@ const loadPage = (page,idTarget) =>{
     });
 }
 
+const loadDiv = async (div,idParent) => {
+    await fetch(div)
+    .then((res) => {
+        if (res.ok)
+            return res.text()
+        })
+        .then((res) => {
+            document.getElementById(idTarget).innerHTML = res
+        });
+}
+

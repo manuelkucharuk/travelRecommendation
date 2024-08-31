@@ -1,9 +1,14 @@
-body{
+html,body{
     color: white;
-    min-height: 100vh;
+    height: 100vh;
 }
 .bgImg{
     background-image: url('../assets/buenosAires2.jpg');
     background-size: cover;
 }
 
+.box {
+    display: flex;
+    height: 100%;
+    flex: 1 1 auto;
+}
