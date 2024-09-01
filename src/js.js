@@ -3,13 +3,13 @@ const loadPage = (page,idTarget) =>{
     box[0].classList.remove("align-items-start")
     box[0].classList.add("align-items-center")
     return fetch(page)
-            .then((res) => {
-                if (res.ok)
-                    return res.text()
-            })
-            .then((res) => {
-                document.getElementById(idTarget).innerHTML = res
-            });
+        .then((res) => {
+           if (res.ok) return res.text()
+         })
+        .then((res) => {
+            document.getElementById(idTarget).innerHTML = res
+        })
+        .catch((e)=>console.log(e));
 }
 
 const search = (e) =>{
@@ -80,8 +80,8 @@ const showRecommendation = (place)=>{
 }
 
 const createHtml = (place)=>{
-    let htmlStr = `<div class="card" style="width: 50%">`
-    htmlStr += `<img src=${place.imageUrl} class="card-img-top" alt="...">`
+    let htmlStr = `<div class="card col-6" style="background-color: rgba(255, 255, 255, 0.5)">`
+    htmlStr += `<img src=${place.imageUrl} class="card-img-top" style="height: 450px; object-fit: contain" alt="...">`
     htmlStr += `<div class="card-body">`
     htmlStr += `<h5 class="card-title">${place.name}</h5>`
     htmlStr += `<p class="card-text">${place.description}</p>`
