@@ -1,4 +1,7 @@
 const loadPage = (page,idTarget) =>{
+    let box = document.getElementsByClassName("box")
+    box[0].classList.remove("align-items-start")
+    box[0].classList.add("align-items-center")
     return fetch(page)
             .then((res) => {
                 if (res.ok)
@@ -63,24 +66,28 @@ const findCountry = (data,key)=>{
     return res
 }
 
-
 const showRecommendation = (place)=>{
     const errorMsg = "<h2>Place not found!</h2>"
-    loadPage("../pages/searchResults.html","content")
-        .then(res=>{
-            const placeElement = document.getElementById("place")
-            if(!place) placeElement.innerHTML = errorMsg
-            else{
-                const placeHtml = createHtml(place)
-                placeElement.app = placeHtml
-                console.log(placeHtml)
-            }
-
-        })
+    const placeElement = document.getElementById("place")
+    if(!place) placeElement.innerHTML = errorMsg
+    else{
+        let box = document.getElementsByClassName("box")
+        box[0].classList.remove("align-items-center")
+        box[0].classList.add("align-items-start")
+        const placeHtml = createHtml(place)
+        placeElement.innerHTML += placeHtml
+    }
 }
 
 const createHtml = (place)=>{
-    return `<h1>${place.name}</h1>`
+    let htmlStr = `<div class="card" style="width: 50%">`
+    htmlStr += `<img src=${place.imageUrl} class="card-img-top" alt="...">`
+    htmlStr += `<div class="card-body">`
+    htmlStr += `<h5 class="card-title">${place.name}</h5>`
+    htmlStr += `<p class="card-text">${place.description}</p>`
+    htmlStr += `<a href="#" class="btn btn-primary">Go!</a>`
+    htmlStr += `</div></div>`
+    return htmlStr
 }
 
 

@@ -1,6 +1,7 @@
-html,body{
-    color: white;
-    height: 100vh;
+body{
+    color: floralwhite;
+    height: calc(100vh - 100px);
+    flex: auto;
 }
 .bgImg{
     background-image: url('../assets/buenosAires2.jpg');
